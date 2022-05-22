@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}detail{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-4 offset-3">
+                <div class="card border-secondary mb-3" style="width: 36rem;">
+                    <div class="card-header">
+                        <h4>Order Infos</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="fw-bold">Product:</span>{{ data.0.product }}
+                        </li>
+                         <li class="list-group-item">
+                             <span class="fw-bold">BillNo:</span>{{ data.0.billno }}&nbsp;&nbsp;&nbsp;&nbsp;
+                             <span class="fw-bold">4Digit:</span>{{ data.0.number_4digit }}&nbsp;&nbsp;&nbsp;&nbsp;
+                             <span class="fw-bold">Date:</span>{{ data.0.date }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">HSCode:</span>{{ data.0.hscode }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Quantity:</span>{{ data.0.quantity }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Unit:</span>{{ data.0.unit }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Item_Rate_Inv:</span>{{ data.0.item_rate_inv }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Currency:</span>{{ data.0.currency }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Total_Amount_Inv_Fc:</span>{{ data.0.total_amount_inv_fc }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Fob_Inr:</span>{{ data.0.fob_inr }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Foreignport:</span>{{ data.0.foreignport }}&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Foreigncountry:</span>{{ data.0.foreigncountry }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Indianport:</span>{{ data.0.indianport }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Iec:</span>{{ data.0.iec }}&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Indiancompany:</span>{{ data.0.indiancompany }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Address1:</span>{{ data.0.address1 }}&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Address2:</span>{{ data.0.address2 }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">City:</span>{{ data.0.city }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Foreigncompany:</span>{{ data.0.foreigncompany }}&nbsp;&nbsp;&nbsp;&nbsp;
+                        </li>
+                          <li class="list-group-item">
+                            <span class="fw-bold">Invoice_No:</span>{{ data.0.invoice_no }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Cush:</span>{{ data.0.cush }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Iec_Pin:</span>{{ data.0.iec_pin }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Item_No:</span>{{ data.0.item_no }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="fw-bold">Item_Rate_Inr:</span>{{ data.0.item_rate_inr }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

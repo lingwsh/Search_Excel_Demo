@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <style>
+        td {
+            font-size: 14px;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}Order Manage System{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- main search area -->
+        <div class="row main-search mt-4">
+            <form class="d-flex">
+                <input class="form-control me-2" id="input_keyword" type="search" placeholder="Product｜IndianCompany｜ForeignCompany" aria-label="Search">
+                <button class="btn btn-outline-success" type="button" id="main_search" style="min-width: 200px">Search</button>
+            </form>
+        </div>
+        <!-- secondary search area -->
+        <div class="sub-search mt-3">
+            <form class="row g-3">
+                <div class="col-2">
+                    <label for="inputPassword2" class="visually-hidden">BillNO</label>
+                    <input type="text" class="form-control" id="billno" placeholder="BillNO">
+                </div>
+                <div class="col-2">
+                    <label for="inputPassword2" class="visually-hidden">4Digit</label>
+                    <input type="text" class="form-control" id="digit" placeholder="4Digit">
+                </div>
+                <div class="col-2">
+                    <label for="inputPassword2" class="visually-hidden">HSCode</label>
+                    <input type="text" class="form-control" id="hscode" placeholder="HSCode">
+                </div>
+                <div class="col-2">
+                    <label for="inputPassword2" class="visually-hidden">ForeignCountry</label>
+                    <input type="text" class="form-control" id="foreigncountry" placeholder="ForeignCountry">
+                </div>
+                <div class="col-2">
+                    <label for="inputPassword2" class="visually-hidden">Invoice_No</label>
+                    <input type="text" class="form-control" id="invoice_no" placeholder="Invoice_No">
+                </div>
+                <div class="col-auto">
+                    <button type="button" id="sub_search" class="btn btn-success mb-3">Advanced Search</button>
+                </div>
+            </form>
+        </div>
+        <!-- display area -->
+        <div class="row display px-3 mt-3">
+            <table class="display table table-sm table-bordered table-hover pt-3" id="tables">
+                <thead>
+                <tr class="text-center">
+                    <th>BillNO</th>
+                    <th>4Digit</th>
+                    <th>Date</th>
+                    <th>HSCode</th>
+                    <th>Product</th>
+                    <th>ForeignCountry</th>
+                    <th>IndianCompany</th>
+                    <th>ForeignCompany</th>
+                    <th>Invoice_No</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for datum in data %}
+                    <tr class="align-middle text-center">
+                        <td>{{ datum.billno }}</td>
+                        <td>{{ datum.number_4digit }}</td>
+                        <td>{{ datum.date }}</td>
+                        <td>{{ datum.hscode }}</td>
+                        <td>{{ datum.product }}</td>
+                        <td>{{ datum.foreigncountry }}</td>
+                        <td>{{ datum.indiancompany }}</td>
+                        <td>{{ datum.foreigncompany }}</td>
+                        <td>{{ datum.invoice_no }}</td>
+                        <td class="text-center">
+                            <a href="{% url 'show-detail' %}?index={{ datum.index }}" target="_blank" class="btn btn-sm btn-primary mx-3 px-3">More</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- pagination -->
+        <div class="row mb-3">
+            <div class="pagination col-2 offset-5">
+                <span class="step-links">
+                    {% if data.has_previous %}
+                        <a href="?page=1">&laquo; First</a>
+                        <a href="?page={{ data.previous_page_number }}">Previous</a>
+                    {% endif %}
+                    <span class="current">
+                        {{ data.number }}/{{ data.paginator.num_pages }}
+                    </span>
+                    {% if data.has_next %}
+                        <a href="?page={{ data.next_page_number }}">Next</a>
+                        <a href="?page={{ data.paginator.num_pages }}">End &raquo;</a>
+                    {% endif %}
+                    <span class="current">
+                        Total: {{ data.paginator.count }}
+                    </span>
+                </span>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function () {
+            let flag = true;
+            // main-search
+            $('#main_search').click(function () {
+                // get input key words
+                let word = $('#input_keyword').val()
+                // redirect
+                location.href="{% url 'get-keyword' %}?keyword=" + word;
+            });
+
+            // sub-search
+            $('#sub_search').click(function () {
+                let billno = $('#billno').val();
+                if (billno == ""){
+                     billno = null;
+                } else {
+                    flag = false
+                }
+
+                let digit = $('#digit').val();
+                if (digit == ""){
+                     digit = null;
+                } else {
+                    flag = false
+                }
+
+                let hscode = $('#hscode').val();
+                if (hscode == ""){
+                     hscode = null;
+                } else {
+                    flag = false
+                }
+
+                let foreigncountry = $('#foreigncountry').val();
+                if (foreigncountry == ""){
+                     foreigncountry = null;
+                } else {
+                    flag = false
+                }
+
+                let invoice_no = $('#invoice_no').val();
+                if (invoice_no == ""){
+                     invoice_no = null;
+                } else {
+                    flag = false
+                }
+                if (flag) {
+                    location.href="{% url 'all' %}"
+                } else {
+                    location.href="{% url 'search' %}?=billno="+billno+"&digit="+digit+"&hscode="+hscode+"&foreigncountry="+foreigncountry+"&invoice_no=" +invoice_no;
+                }
+            });
+        })
+    </script>
+{% endblock %}
