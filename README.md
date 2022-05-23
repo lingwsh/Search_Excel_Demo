@@ -72,12 +72,13 @@ For data security reason, please use provided Excel to creat MySQL table and imp
 Please follow these steps to start the project in local.
 
 1.Install necessary package by this code:
- <p> pip install -r [requests.txt](https://github.com/lingwsh/Search_Excel_Demo/blob/main/orders_manage_system/requests.txt)
 
-2.run this code in local, import Excel to MySQL database. Remenmber to change the MySQL connection information.
- <p> [creat database by Excel](https://github.com/lingwsh/Search_Excel_Demo/blob/main/create_database_by_excel.py)
+pip install -r [requests.txt](https://github.com/lingwsh/Search_Excel_Demo/blob/main/orders_manage_system/requests.txt)
+
+2.run this code in local, import Excel to MySQL database. Remenmber to change the MySQL connection information.[creat database by Excel](https://github.com/lingwsh/Search_Excel_Demo/blob/main/create_database_by_excel.py)
 
 3.Change MySQL connection information, [config file](https://github.com/lingwsh/Search_Excel_Demo/blob/main/orders_manage_system/orders_manage_system/settings.py)
 
 4.Run Django at project file by code
- <p>python manage.py runserver
+
+python manage.py runserver
