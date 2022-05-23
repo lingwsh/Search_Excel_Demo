@@ -69,9 +69,11 @@ def get_keyword(request):
 
 def search(request):
     billno = request.GET.get("billno")
-    if billno != None:
+    # print(billno)
+    if billno != "null":
         ACTIVE_INFO['BillNO'] = int(billno)
     digit = request.GET.get("digit")
+    print(digit)
     if digit != "null":
         ACTIVE_INFO['4Digit'] = int(digit)
     hscode = request.GET.get("hscode")

@@ -159,7 +159,7 @@
                 if (flag) {
                     location.href="{% url 'all' %}"
                 } else {
-                    location.href="{% url 'search' %}?=billno="+billno+"&digit="+digit+"&hscode="+hscode+"&foreigncountry="+foreigncountry+"&invoice_no=" +invoice_no;
+                    location.href="{% url 'search' %}?billno="+billno+"&digit="+digit+"&hscode="+hscode+"&foreigncountry="+foreigncountry+"&invoice_no=" +invoice_no;
                 }
             });
         })
