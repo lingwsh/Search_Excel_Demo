@@ -47,15 +47,19 @@ More technical details are in log file. I record these information in an Excel, 
 ## Future Scalable Design
 ### Does the data need to be pre-processed?
 Usually data needs to be checked before it is imported into the database, for example: handling null, validating the format of different fields, etc. I don't know too much about the given file fields and I will spend more time on Django, so I imported the data directly into the database in this case.
+
 ### In what ways is the amount of data a problem?
 When the volume of data is large, MySQL search speed will be slowed down, so you can add index to the query fileds or use a split table and database. These traditional methods, of course, have improved performance in MongoDB. I have not used MongoDB before, but I am very interested in learning how to use it ASAP. 
+
 ### How to solve the problem escalate as more data is added in the future? 
 Some ideas may help to solve this problem. The main objective is to minimise manual work and automate the processing of the new data.
 <ol>
   <li>If the data is provide from third party, using E-mail ,FTP or other file transfer methods automately receive update data file from different data source. If the source can confirm different period data is not repeated, our system can append these data to database. Otherwise, the system has to check each data record are new in the database.</li>
   <li>If we have the access to the datasource, we can extract the new data by code Periodically. But this situation may not the daily case. Database auto backup is not new. My previous work, we used [Oracle GoldenGate](https://www.oracle.com/integration/goldengate/) for high-speed synchronisation between databases. It is good tool, but not free. </li>
 </ol>
+
 ### Some usability concerns
+
 Although I did not do time filtering in this case, but according to my experience using PowerBI and Tableau, the order query system can add a powerful time filtering management tools can help users to quickly filter time and generate reports.
 
 <ol>
