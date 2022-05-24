@@ -13,9 +13,10 @@ The main search box can blur serach three fields.
 #### Detail information page 
 After click "More" in each row, the new webpage will show detail information.
 ![Detail Page](https://github.com/lingwsh/Search_Excel_Demo/blob/main/img/04_detail_page.png?raw=true)
+
 #### Video display search result and function explaination
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gHfbImUKDls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![IMAGE ALT TEXT HERE](https://github.com/lingwsh/Search_Excel_Demo/blob/main/img/05_youtube_pic.png)](https://www.youtube.com/embed/gHfbImUKDls)
 
 
 ## Technical used in this Demo
