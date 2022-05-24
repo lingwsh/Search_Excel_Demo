@@ -1,6 +1,6 @@
 # Search\_Excel\_Demo
 ## Introduction
-This Demo read and clean excel data by Python(Jupyter Notebook)-openpyxl, write data to MySQL by Pandas. Django as backend, HTML and jQuery are frontend of searching data list in webpage.
+This Demo read Excel data by Python(Jupyter Notebook)-openpyxl, write data to MySQL by Pandas. Django as backend, HTML and jQuery are frontend of searching data list in webpage.
 
 
 ### Website Draft
